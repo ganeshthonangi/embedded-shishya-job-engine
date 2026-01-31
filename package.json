@@ -1,0 +1,8 @@
+{
+  "name": "embedded-shishya-job-engine",
+  "version": "1.0.0",
+  "dependencies": {
+    "puppeteer": "^22.0.0",
+    "google-spreadsheet": "^4.3.0"
+  }
+}
