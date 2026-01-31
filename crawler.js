@@ -11,7 +11,11 @@ const creds = JSON.parse(
 
 (async () => {
   const doc = new GoogleSpreadsheet(SHEET_ID);
-  await doc.useServiceAccountAuth(creds);
+  await doc.useServiceAccountAuth({
+  client_email: creds.client_email,
+  private_key: creds.private_key
+});
+
   await doc.loadInfo();
 
   const jobsSheet = doc.sheetsByTitle["es_jobs"];
