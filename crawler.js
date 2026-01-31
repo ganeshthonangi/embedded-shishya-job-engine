@@ -4,7 +4,10 @@ const { GoogleSpreadsheet } = require("google-spreadsheet");
 console.log("ENV GOOGLE_SERVICE_ACCOUNT =", process.env.GOOGLE_SERVICE_ACCOUNT);
 
 const SHEET_ID = "13V7xOJkVp6wEA88J18m8Qspi05rL7t3FJtSuxQl_p98";
-const creds = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+const creds = JSON.parse(
+  Buffer.from(process.env.GOOGLE_SERVICE_ACCOUNT, "base64").toString("utf8")
+);
+
 
 (async () => {
   const doc = new GoogleSpreadsheet(SHEET_ID);
