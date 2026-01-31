@@ -25,7 +25,11 @@ const creds = JSON.parse(
   console.log("Keywords:", keywords.join(","));
   console.log("Seen:", seen.length);
 
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+  headless: true,
+  args: ["--no-sandbox", "--disable-setuid-sandbox"]
+});
+
   const page = await browser.newPage();
 
   await page.goto("https://www.naukri.com/embedded-jobs", { waitUntil: "networkidle2" });
